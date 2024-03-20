@@ -53,7 +53,8 @@ if __name__ == "__main__":
     args = read_config(args)
     model = CustomDenseNet(name=args.name)
     input_batch = CustomDenseNet.get_batch(url=args.url)
-
+    print(input_batch, flush=True)
+    print(input_batch.shape, flush=True)
     conv0 = nn.Conv2d(3, 64, kernel_size=7, stride=2, padding=3, bias=False)
 
     result = conv0(input_batch)
