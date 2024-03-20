@@ -1,0 +1,12 @@
+name:
+  value: "densenet121"
+  help: |
+    The name of the model
+    - densenet121
+    - densenet169
+    - densenet201
+    - densenet161
+    
+url:
+  value: "https://github.com/pytorch/hub/raw/master/images/dog.jpg"
+  help: The url of the image
