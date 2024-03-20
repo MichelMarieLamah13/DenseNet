@@ -5,6 +5,7 @@ import urllib.request
 
 from PIL import Image
 from torchvision import transforms
+from densenet_model import densenet121, densenet169, densenet161, densenet201
 
 import torch.nn as nn
 
@@ -16,7 +17,14 @@ class CustomDenseNet(nn.Module):
 
     def __init__(self, name):
         super(CustomDenseNet, self).__init__()
-        self.model = torch.hub.load('pytorch/vision:v0.10.0', model=name, pretrained=True)
+        if name == 'densenet121':
+            self.model = densenet121(pretrained=True)
+        elif name == 'densenet161':
+            self.model = densenet161(pretrained=True)
+        elif name == 'densenet169':
+            self.model = densenet169(pretrained=True)
+        else:
+            self.model = densenet201(pretrained=True)
 
     def forward(self, x):
         x = self.model(x)
