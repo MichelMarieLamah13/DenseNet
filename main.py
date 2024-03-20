@@ -33,9 +33,9 @@ if __name__ == "__main__":
     with torch.no_grad():
         output = model(input_batch)
 
-    print(output[0])
+    print(output[0], flush=True)
 
     probabilities = torch.nn.functional.softmax(output[0], dim=0)
-    print(probabilities)
+    print(probabilities, flush=True)
 
     CustomDenseNet.read_categories(k=10, probabilities=probabilities)

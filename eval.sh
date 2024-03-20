@@ -11,6 +11,6 @@
 source /etc/profile.d/conda.sh
 conda activate ecapa_tdnn
 
-python3 densenet.py
+python3 main.py
 
 conda deactivate
