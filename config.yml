@@ -1,5 +1,5 @@
 name:
-  value: "densenet169"
+  value: "densenet201"
   help: |
     The name of the model
     - densenet121
