@@ -1,6 +1,7 @@
 import argparse
 
 import torch
+from torch import nn
 
 from DenseNetPretrain import CustomDenseNet
 import yaml
@@ -15,7 +16,7 @@ def read_config(args):
     return args
 
 
-if __name__ == "__main__":
+def test():
     parser = argparse.ArgumentParser(description="DenseNET")
     parser.add_argument('--config',
                         type=str,
@@ -39,3 +40,23 @@ if __name__ == "__main__":
     # print(probabilities, flush=True)
 
     CustomDenseNet.read_categories(k=10, probabilities=probabilities)
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="DenseNET")
+    parser.add_argument('--config',
+                        type=str,
+                        default="config.yml",
+                        help='Configuration file')
+
+    args = parser.parse_args()
+    args = read_config(args)
+    model = CustomDenseNet(name=args.name)
+    input_batch = CustomDenseNet.get_batch(url=args.url)
+
+    conv0 = nn.Conv2d(3, 64, kernel_size=7, stride=2, padding=3, bias=False)
+
+    result = conv0(input_batch)
+
+    print(result, flush=True)
+    print(result.shape, flush=True)
