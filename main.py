@@ -2,7 +2,7 @@ import argparse
 
 import torch
 
-from densenet import CustomDenseNet
+from DenseNetPretrain import CustomDenseNet
 import yaml
 
 

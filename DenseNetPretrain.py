@@ -5,9 +5,10 @@ import urllib.request
 
 from PIL import Image
 from torchvision import transforms
-from densenet_model import densenet121, densenet169, densenet161, densenet201
 
 import torch.nn as nn
+
+from DenseNetModel import densenet201, densenet169, densenet161, densenet121
 
 
 class CustomDenseNet(nn.Module):
