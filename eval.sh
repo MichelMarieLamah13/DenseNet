@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=eval
+#SBATCH --job-name=densenet
 #SBATCH --partition=gpu
 #SBATCH --gres=gpu:1
 #SBATCH --time=7-00:00:00
